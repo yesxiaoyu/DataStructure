@@ -5,7 +5,7 @@
 我们需要根据应用场景的不同，灵活选择最合适的数据结构。
 
 * 线性结构
-> 1.数组
+> 1.数组 Array
 > 
 > loitering object不属于内存泄漏memory leak
 > 
@@ -13,11 +13,23 @@
 > 
 > 增：O(n) 删：O(n) 改：已知索引O(1)、未知索引O(n) 查：已知索引O(1)、未知索引O(n)
 > 
-> 2.栈
+> 2.栈 Stack
+> 
+> 应用：系统栈、中断、括号匹配、逆波兰表达式求值
 > 
 > push：均摊O(1) pop：均摊O(1) getTop：O(1) getSize：O(1) isEmpty：O(1)
 > 
-> 3.队列
+> 3.队列 Queue
+> 
+> 应用：优先队列、树的层次遍历、图的广度优先搜索
+> 
+> * **数组队列 ArrayQueue**
+> 
+> enqueue：均摊O(1) dequeue：O(n) getFront：O(1) getSize：O(1) isEmpty：O(1)
+> 
+> * **循环队列 LoopQueue** 解决enqueue：均摊O(1)问题，**front == tail队列为空**, **(tail + 1) % c == front队列满**.
+> 
+> enqueue：均摊O(1) dequeue：均摊O(1) getFront：O(1) getSize：O(1) isEmpty：O(1)
 > 
 > 4.链表
 > 
