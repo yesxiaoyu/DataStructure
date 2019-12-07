@@ -74,7 +74,9 @@
 > > BST后序遍历：C++释放BST内存.
 > > 
 > > BST层序遍历：相当于广度优先遍历.
-
+> > 
+> > add contains remove traversal successor predecessor floor ceil(元素可能不在BST中) rank select 
+> > 
 > 
 > 3.平衡二叉树 AVL
 > 
