@@ -40,7 +40,10 @@
 > > enqueue：均摊O(1) dequeue：均摊O(1) getFront：O(1) getSize：O(1) isEmpty：O(1)
 > 
 > >  * **链队列 LinkedQueue** 
-> > O(1) dequeue：O(1) getFront：O(1) getSize：O(1) isEmpty：O(1)
+> > enqueue：O(1) dequeue：O(1) getFront：O(1) getSize：O(1) isEmpty：O(1)
+> 
+> >  * **优先队列 PriorityQueue** 
+> > enqueue：O(logn) dequeue：O(logn) getFront：O(logn) getSize：O(1) isEmpty：O(1)
 > 
 > 4.链表 LinkedList
 > 
@@ -54,7 +57,9 @@
 
 * 树形结构
 
-需要考虑树是否为满二叉树？完全二叉树？二叉搜索树？平衡二叉树？空或只有一个节点也可以看做二叉树. 
+需要考虑树是否为满二叉树？完全二叉树？二叉搜索树？平衡二叉树？空或只有一个节点也可以看做二叉树.
+
+对于满二叉树，第h-1层有2^(h-1)个节点，0~h-1层共有2^h-1个节点. 设n为总结点数，2^h-1=n，h=log<sub>2</sub>n+1 
 
 > 1.二叉树
 > 
@@ -78,22 +83,43 @@
 > > add contains remove traversal successor predecessor floor ceil(元素可能不在BST中) rank select 
 > > 
 > 
-> 3.平衡二叉树 AVL
+> 3.二叉堆
 > 
-> 4.红黑树
+> 完全二叉树、堆中某个节点的值总是不大于其父节点的值(最大堆).
 > 
-> 区间树是一种以区间为数据元素的红黑树，可用于求解图形之间的包含关系.
+> 使用数组存储二叉堆. 可以使用数学归纳法证明如下等式.
 > 
-> 5.平衡树 Treap二叉搜索树和堆合并构成的新数据结构，所以它的名字取了Tree和Heap各一半，叫做Treap.
+> 第一层为1：数组第一个元素空出来
+>     parent(i) = i / 2
+>     left child(i) = 2 * i
+>     right child(i) = 2 * i + 1
+> 第一层为0：
+>     parent(i) = (i - 1) / 2
+>     left child(i) = 2 * i + 1
+>     right child(i) = 2 * i + 2
+> 
+> 更多堆：索引堆、二项堆、斐波那契堆...
+> 
+> add replace siftUp siftDown extractMax size isEmpty
+> 
+> 4.平衡二叉树 AVL
+> 
+> 5.红黑树
+> 
+> 6.平衡树 Treap二叉搜索树和堆合并构成的新数据结构，所以它的名字取了Tree和Heap各一半，叫做Treap.
 > 
 > 
-> 6.伸展树 Splay也叫分裂树，是一种二叉排序树，它能在O(log n)内完成插入、查找和删除操作。它由丹尼尔·斯立特Daniel Sleator 和 罗伯特·恩卓·塔扬Robert Endre Tarjan 在1985年发明的。
-> 
-> 7.堆
+> 7.伸展树 Splay也叫分裂树，是一种二叉排序树，它能在O(log n)内完成插入、查找和删除操作。它由丹尼尔·斯立特Daniel Sleator 和 罗伯特·恩卓·塔扬Robert Endre Tarjan 在1985年发明的。
 > 
 > 8.字典树 Trie：前缀树，解决毫秒级通讯录查询。 
 > 
-> 9.线段树 LeetCode相关线段树的问题208、611、277
+> 9.线段树(区间树) Segment Tree/interval tree : LeetCode相关线段树的问题208、611、277
+> 
+> 区间树是一种以区间为数据元素的红黑树，可用于求解图形之间的包含关系.
+> 
+> 对于给定区间：
+> 更新：更新一个区间的一个元素或一个区间的值
+> 查询：查询一个区间[i,j]的最小值、最大值或者区间数字和
 > 
 > 10.k-D树 K-D树是把K维空间中的点组织起来的空间划分数据结构，与四叉树不同的是，K-D树对空间的划分不是按照某种固定模式进行的，对空间的划分更有效。
 > 
