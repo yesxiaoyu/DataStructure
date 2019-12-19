@@ -144,7 +144,15 @@
 > 
 > 10.k-D树 K-D树是把K维空间中的点组织起来的空间划分数据结构，与四叉树不同的是，K-D树对空间的划分不是按照某种固定模式进行的，对空间的划分更有效。
 > 
-> 11.并查集
+> 11.并查集 Union Find
+> 
+> 孩子指向父亲的树结构，解决连接问题(是否属于同一个集合)Connectivity Problem、求集合中的并集操作.
+> 
+> Quick Find：unionElements O(n) isConnected O(1)
+> 
+> Quick Union：unionElements O(h)，h为树的高度 isConnected O(1)
+> 
+> 其他优化方案：基于size、rank的优化过程，以及路径压缩Path Compression(让树的高度尽可能地低).
 > 
 > 12.哈夫曼树
 
